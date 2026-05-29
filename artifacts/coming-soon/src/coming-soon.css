@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Cormorant+SC:wght@300;400&family=Montserrat:wght@200;300;400&display=swap');
+
+.coming-soon-root {
+  position: relative;
+  min-height: 100dvh;
+  width: 100%;
+  background-color: #111010;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Subtle vignette */
+.coming-soon-root::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.45) 100%);
+  pointer-events: none;
+}
+
+/* ─── Corners ─── */
+.corner {
+  position: absolute;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: rgba(235, 228, 215, 0.5);
+}
+
+.corner.top-left  { top: 2rem; left: 2rem; }
+.corner.top-right { top: 2rem; right: 2rem; }
+.corner.bottom-left  { bottom: 2rem; left: 2rem; }
+.corner.bottom-right { bottom: 2rem; right: 2rem; }
+
+.dot {
+  font-size: 1rem;
+  color: rgba(235, 228, 215, 0.35);
+}
+
+/* ─── Center content ─── */
+.center-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+  padding: 2rem;
+}
+
+/* ─── Tagline ─── */
+.tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  color: rgba(235, 228, 215, 0.45);
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+}
+
+/* ─── Brand name ─── */
+.brand-name {
+  font-family: 'Cormorant SC', serif;
+  font-weight: 300;
+  font-size: clamp(3.5rem, 12vw, 10rem);
+  letter-spacing: 0.08em;
+  color: #ebe4d7;
+  line-height: 0.9;
+  margin: 0 0 2rem;
+  text-transform: uppercase;
+  /* Slight texture via text-shadow */
+  text-shadow:
+    0 0 80px rgba(235, 228, 215, 0.04),
+    0 1px 0 rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1.4s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Divider with "COMING SOON" ─── */
+.divider-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 0 0 3rem;
+  animation: fadeIn 1.8s ease 0.3s forwards;
+  opacity: 0;
+}
+
+.divider-line {
+  display: block;
+  height: 1px;
+  width: 3.5rem;
+  background: rgba(235, 228, 215, 0.25);
+}
+
+.coming-soon-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  color: rgba(235, 228, 215, 0.5);
+  text-transform: uppercase;
+}
+
+/* ─── Countdown ─── */
+.countdown {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  animation: fadeIn 2s ease 0.6s forwards;
+  opacity: 0;
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.time-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  color: #ebe4d7;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  min-width: 2ch;
+  text-align: center;
+}
+
+.time-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+  color: rgba(235, 228, 215, 0.35);
+  text-transform: uppercase;
+}
+
+.colon {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  color: rgba(235, 228, 215, 0.4);
+  line-height: 1;
+  margin-top: 0.1rem;
+  animation: pulse 1s step-start infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 480px) {
+  .corner { font-size: 0.55rem; }
+  .corner.top-left  { top: 1.2rem; left: 1.2rem; }
+  .corner.top-right { top: 1.2rem; right: 1.2rem; }
+  .corner.bottom-left  { bottom: 1.2rem; left: 1.2rem; }
+  .corner.bottom-right { bottom: 1.2rem; right: 1.2rem; }
+
+  .countdown { gap: 0.8rem; }
+  .divider-line { width: 2rem; }
+}
