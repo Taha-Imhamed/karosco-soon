@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const LAUNCH_DATE = new Date("2026-07-15T00:00:00");
+const LAUNCH_DATE = new Date("2026-06-12T00:00:00");
 
 function useCountdown(target: Date) {
   const getTimeLeft = () => {
