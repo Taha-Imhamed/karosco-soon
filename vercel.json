@@ -1,0 +1,8 @@
+{
+  "buildCommand": "pnpm --filter @workspace/coming-soon run build",
+  "outputDirectory": "artifacts/coming-soon/dist/public",
+  "installCommand": "pnpm install",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
